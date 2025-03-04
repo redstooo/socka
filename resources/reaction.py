@@ -64,3 +64,20 @@ class GetReactions(MethodView):
         except IntegrityError:
             db.session.rollback()
             return {"error": "duplikát"}, 400
+
+
+
+@blp.route("/reaction/<string:name>")
+class GetChemicals(MethodView):
+    def get(self, name):
+        reakcia = ReactionModel.query.filter(ReactionModel.name==name).first()
+
+        return {"reakcia": model_to_dict(reakcia)}, 200
+
+
+@blp.route("/reaction/<int:id>")
+class GetChemicals(MethodView):
+    def get(self, id):
+        reakcia = ReactionModel.query.filter(ReactionModel.id==id).first()
+
+        return {"reakcia": model_to_dict(reakcia)}, 200

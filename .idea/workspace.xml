@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment=".env do gitignore" />
+    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment=".venv">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/chemical.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/chemical.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/reaction.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,13 +101,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741095953155</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=".env">
+      <option name="closed" value="true" />
+      <created>1741096152398</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741096152398</updated>
+    </task>
+    <task id="LOCAL-00005" summary=".venv">
+      <option name="closed" value="true" />
+      <created>1741096229567</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741096229567</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pridanie zakladneho kivy gui" />
     <MESSAGE value="kivy update" />
     <MESSAGE value=".env do gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value=".env do gitignore" />
+    <MESSAGE value=".env" />
+    <MESSAGE value=".venv" />
+    <option name="LAST_COMMIT_MESSAGE" value=".venv" />
   </component>
 </project>
