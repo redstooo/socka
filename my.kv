@@ -1,12 +1,39 @@
 <MyGrid>
-    nieco: nieco
+    chem1: chem1
+    chem2: chem2
+    ukazovanie: ukazovanie
+    ukazovanie2: ukazovanie2
     GridLayout:
-        cols: 1
         size: root.width, root.height
-        Label:
-            id: nieco
-            text: "skuska"
+        cols: 2
+        GridLayout:
+            cols: 1
+            GridLayout:
+                cols: 2
+                Label:
+                    text: "1. chemikália"
 
-        Button:
-            text: "klikni"
-            on_press: root.stlacenie()
+                TextInput:
+                    id: chem1
+                    multiline: False
+
+                Label:
+                    text: "2. chemikália"
+
+                TextInput:
+                    id: chem2
+                    multiline: False
+
+            Button:
+                text: "Pridať"
+                on_press: root.stlacenie()
+        GridLayout:
+            cols: 1
+            Label:
+                id: ukazovanie
+                text: ""
+
+            Label:
+                id: ukazovanie2
+                text: ""
+

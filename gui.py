@@ -7,12 +7,17 @@ from kivy.app import App
 
 class MyGrid(Widget):
     def stlacenie(self):
-        nieco = ObjectProperty(None)
-        url = "http://127.0.0.1:5000/reaction"  # Adresa Flask API
+        chem1 = ObjectProperty(None)
+        chem2 = ObjectProperty(None)
+        ukazovanie = ObjectProperty(None)
+        ukazovanie2 = ObjectProperty(None)
+        url = "http://127.0.0.1:5000/reaction"
         response = requests.get(url)
         if response.status_code == 200:
             data = response.json()
-            self.nieco.text = str(data)
+            self.ukazovanie.text = str(data)
+            self.ukazovanie2.text = str(data)
+
 
 class MyApp(App):
     def build(self):

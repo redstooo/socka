@@ -3,3 +3,4 @@ flask-sqlalchemy
 flask
 flask-smorest
 python-dotenv
+kivy
