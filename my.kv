@@ -1,39 +1,47 @@
 <MyGrid>
-    chem1: chem1
-    chem2: chem2
-    ukazovanie: ukazovanie
-    ukazovanie2: ukazovanie2
-    GridLayout:
+    chem_input: chem_input
+    sidebar: sidebar
+    sidebar_label: sidebar_label
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.9 , 0.9, 0.3
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
         size: root.width, root.height
-        cols: 2
+        orientation: 'horizontal'
+
+        # Sidebar
+        FloatLayout:
+            id: sidebar
+            size_hint_x: 0.2
+            orientation: 'vertical'
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                id: sidebar_label
+                text: "prvky sa zobrazujú tu"
+                color: 1, 1, 1, 1  # White text
+
+
         GridLayout:
-            cols: 1
-            GridLayout:
-                cols: 2
-                Label:
-                    text: "1. chemikália"
-
-                TextInput:
-                    id: chem1
-                    multiline: False
-
-                Label:
-                    text: "2. chemikália"
-
-                TextInput:
-                    id: chem2
-                    multiline: False
-
+            cols: 2
+            TextInput:
+                id: chem_input
+                multiline: False
+                size_hint_y: None
+                height: 100
+                size_hint_x: 0.25
             Button:
                 text: "Pridať"
-                on_press: root.stlacenie()
-        GridLayout:
-            cols: 1
-            Label:
-                id: ukazovanie
-                text: ""
+                on_press: root.pridat_do_sidebaru()
+                size_hint_y: None
+                height: 100
 
-            Label:
-                id: ukazovanie2
-                text: ""
 
