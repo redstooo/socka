@@ -32,6 +32,7 @@ class MyGrid(Widget):
                     if self.pozicia == 930:
                         self.pozicia = 0
 
+
 class DraggableButton(Button):
    def on_touch_down(self, touch):
       if self.collide_point(*touch.pos):
@@ -71,14 +72,26 @@ class DraggableButton(Button):
 
    def check_for_reaction(self, other_button):
        print("CHECKUJEM")
-       print(other_button.custom_id)
-       print(self.custom_id)
-       # NIECO S TYMI IDCKAMI ASI
-       response = requests.get("http://127.0.0.1:5000/reaction")
-       data = response.json()
-       for reaction in data["Reactions..."]:
-           a = []
-
+       try:
+           moje_id = [other_button.custom_id, self.custom_id]
+           response = requests.get("http://127.0.0.1:5000/reaction")
+           data = response.json()
+           for reaction in data["Reactions..."]:
+               api_id = [reaction["reactant_one_id"], reaction["reactant_two_id"]]
+               if sorted(api_id) == sorted(moje_id):
+                   print("mame match")
+                   parent_layout = self.parent
+                   pozicia_x, pozicia_y = self.pos
+                   parent_layout.remove_widget(self)
+                   parent_layout.remove_widget(other_button)
+                   reakcia = DraggableButton(text=reaction["name"], size_hint_y=None, size_hint_x=0.5, height=60)
+                   reakcia.pos = (pozicia_x - 5, pozicia_y + 5)
+                   parent_layout.add_widget(reakcia)
+                   break
+               else:
+                   print("nie je match")
+       except AttributeError:
+           print("tento objekt nemá id")
 
 class MyApp(App):
     def build(self):
