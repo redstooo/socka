@@ -1,5 +1,3 @@
-from enum import unique
-
 from db import db
 
 class ReactionModel(db.Model):

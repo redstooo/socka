@@ -27,12 +27,6 @@ def model_to_dict(model):
 class GetReactions(MethodView):
     def get(self):
         reactions = ReactionModel.query.all()
-        for reaction in reactions:
-            print(model_to_dict(reaction))
-            chemical1 = ChemicalModel.query.filter(ChemicalModel.id==reaction.reactant_one_id).first()
-            chemical2 = ChemicalModel.query.filter(ChemicalModel.id==reaction.reactant_two_id).first()
-            print(model_to_dict(chemical1))
-            print(model_to_dict(chemical2))
 
         reakcie = []
         for reaction in reactions:
@@ -56,6 +50,9 @@ class GetReactions(MethodView):
 
             reaction = ReactionModel()
             reaction.name = reaction_name
+            reaction.element = request.json["element"]
+            reaction.state = request.json["state"]
+            reaction.desc = request.json["desc"]
             reaction.reactant_one_id = reactant_one.id
             reaction.reactant_two_id = reactant_two.id
             db.session.add(reaction)

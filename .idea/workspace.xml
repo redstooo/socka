@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment="checkovanie či je reakcia platná a podľa toho vytvorí reakciu">
+    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment="checkpoint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/chemical.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/chemical.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/reaction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my.kv" beforeDir="false" afterPath="$PROJECT_DIR$/my.kv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/chemical.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/chemical.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/reaction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/skuska.py" beforeDir="false" afterPath="$PROJECT_DIR$/skuska.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741821403526</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="checkpoint">
+      <option name="closed" value="true" />
+      <created>1741955083051</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741955083051</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,6 +205,7 @@
     <MESSAGE value="pridanie endpointov na chemikalie a reakcie podla id a mena" />
     <MESSAGE value="upgrade kivy gui a prepojenie ciastocne s API" />
     <MESSAGE value="checkovanie či je reakcia platná a podľa toho vytvorí reakciu" />
-    <option name="LAST_COMMIT_MESSAGE" value="checkovanie či je reakcia platná a podľa toho vytvorí reakciu" />
+    <MESSAGE value="checkpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkpoint" />
   </component>
 </project>

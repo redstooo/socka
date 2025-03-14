@@ -5,8 +5,11 @@ from kivy.uix.widget import Widget
 from kivy.app import App
 from kivy.uix.button import Button
 
+response_react = requests.get("http://127.0.0.1:5000/reaction")
+response_chem = requests.get("http://127.0.0.1:5000/chemical")
 
 class MyGrid(Widget):
+
     odstranene = False
     pozicia = 0
     def pridat_do_sidebaru(self):
@@ -18,12 +21,11 @@ class MyGrid(Widget):
             if not self.odstranene:
                 self.sidebar.remove_widget(self.sidebar_label)
                 self.odstranene += True
-            response = requests.get("http://127.0.0.1:5000/chemical")
-            data = response.json()
+            data = response_chem.json()
             for prvok in data["Chemicals..."]:
                 if prvok["name"] == chem_name:
                     idcko = prvok['id']
-                    new_button = DraggableButton(text=f"{idcko} \n{chem_name}", size_hint_y=None, size_hint_x=0.5, height=60)
+                    new_button = DraggableButton(text=f"{prvok['element']} \n {prvok['state']} {chem_name}", size_hint_y=None, size_hint_x=0.5, height=60)
                     new_button.pos = (self.sidebar.width/2 - self.sidebar.width/4, self.pozicia)
                     new_button.custom_id = idcko
                     new_button.pozicia_x, new_button.pozicia_y = new_button.pos
@@ -80,8 +82,7 @@ class DraggableButton(Button):
        match = False
        try:
            moje_id = [other_button.custom_id, self.custom_id]
-           response = requests.get("http://127.0.0.1:5000/reaction")
-           data = response.json()
+           data = response_react.json()
            for reaction in data["Reactions..."]:
                api_id = [reaction["reactant_one_id"], reaction["reactant_two_id"]]
                if sorted(api_id) == sorted(moje_id):
@@ -90,7 +91,7 @@ class DraggableButton(Button):
                    pozicia_xx, pozicia_yy = self.pos
                    parent_layout.remove_widget(self)
                    parent_layout.remove_widget(other_button)
-                   reakcia = DraggableButton(text=reaction["name"], size_hint_y=None, size_hint_x=0.5, height=60)
+                   reakcia = DraggableButton(text=f" {reaction['element']} \n {reaction['state']} {reaction['name']}" , size_hint_y=None, size_hint_x=0.5, height=60)
                    reakcia.pos = (pozicia_xx - 5, pozicia_yy + 5)
                    parent_layout.add_widget(reakcia)
                    match += True
