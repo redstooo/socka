@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment="upgrade kivy gui a prepojenie ciastocne s API">
+    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment="checkovanie či je reakcia platná a podľa toho vytvorí reakciu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skuska.py" beforeDir="false" afterPath="$PROJECT_DIR$/skuska.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/chemical.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/chemical.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/reaction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my.kv" beforeDir="false" afterPath="$PROJECT_DIR$/my.kv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,17 +47,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Python.app.executor": "Run",
-    "Python.gui.executor": "Run",
-    "Python.request.executor": "Run",
-    "Python.skuska.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.request.executor&quot;: &quot;Run&quot;,
+    &quot;Python.skuska.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\maxim\PycharmProjects\socka" />
@@ -162,8 +164,27 @@
       <option name="project" value="LOCAL" />
       <updated>1741373352521</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="checkovanie či je reakcia platná a podľa toho vytvorí reakciu">
+      <option name="closed" value="true" />
+      <created>1741821403526</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1741821403526</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pridanie zakladneho kivy gui" />
@@ -173,6 +194,7 @@
     <MESSAGE value=".venv" />
     <MESSAGE value="pridanie endpointov na chemikalie a reakcie podla id a mena" />
     <MESSAGE value="upgrade kivy gui a prepojenie ciastocne s API" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrade kivy gui a prepojenie ciastocne s API" />
+    <MESSAGE value="checkovanie či je reakcia platná a podľa toho vytvorí reakciu" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkovanie či je reakcia platná a podľa toho vytvorí reakciu" />
   </component>
 </project>
