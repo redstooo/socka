@@ -37,9 +37,6 @@ class GetChemicals(MethodView):
         try:
             chemical = ChemicalModel()
             chemical.name = request.json["name"]
-            chemical.element = request.json["element"]
-            chemical.state = request.json["state"]
-            chemical.desc = request.json["desc"]
             db.session.add(chemical)
             db.session.commit()
             return {"Pridané: ": chemical.name}, 201

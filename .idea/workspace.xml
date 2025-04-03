@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment="checkpoint">
+    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment="update gui + pridanie novych hodnot do tabuliek">
+      <change afterPath="$PROJECT_DIR$/request_dat_do_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/chemical.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/chemical.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/reaction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/chemical.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/chemical.py" afterDir="false" />
@@ -55,7 +55,9 @@
     &quot;Python.app.executor&quot;: &quot;Run&quot;,
     &quot;Python.gui.executor&quot;: &quot;Run&quot;,
     &quot;Python.request.executor&quot;: &quot;Run&quot;,
+    &quot;Python.request_dat_do_db.executor&quot;: &quot;Run&quot;,
     &quot;Python.skuska.executor&quot;: &quot;Run&quot;,
+    &quot;Python.skuska2.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
@@ -182,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741955083051</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update gui + pridanie novych hodnot do tabuliek">
+      <option name="closed" value="true" />
+      <created>1741957405611</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741957405611</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,6 +216,7 @@
     <MESSAGE value="upgrade kivy gui a prepojenie ciastocne s API" />
     <MESSAGE value="checkovanie či je reakcia platná a podľa toho vytvorí reakciu" />
     <MESSAGE value="checkpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="checkpoint" />
+    <MESSAGE value="update gui + pridanie novych hodnot do tabuliek" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gui + pridanie novych hodnot do tabuliek" />
   </component>
 </project>

@@ -50,8 +50,8 @@ class GetReactions(MethodView):
 
             reaction = ReactionModel()
             reaction.name = reaction_name
-            reaction.element = request.json["element"]
-            reaction.state = request.json["state"]
+            reaction.formula = request.json["formula"]
+            reaction.smiles = request.json["smiles"]
             reaction.desc = request.json["desc"]
             reaction.reactant_one_id = reactant_one.id
             reaction.reactant_two_id = reactant_two.id
