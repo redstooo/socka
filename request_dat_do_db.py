@@ -1,5 +1,6 @@
 import requests
 import time
+from smiles_pridavanie import pridavanie_obrazku
 
 def udaje_pubchem(reaction):
     prvky = reaction.split(" + ")
@@ -51,34 +52,35 @@ def pridavanie(rozsah1, rozshah2):
                 smiles = ""
                 desc = ""
                 udaje = udaje_pubchem(reakcie)
-                for asd in udaje[0]:
-                    meno += f"{asd}+"
+                # for asd in udaje[0]:
+                #     meno += f"{asd} "
 
                 for asd in udaje[1]:
-                    smiles += f"{asd}+"
+                    # smiles += f"{asd} "
+                    pridavanie_obrazku(asd.strip())
 
-                for asd in udaje[2]:
-                    desc += f"{asd}, "
-                meno = meno.replace(" +", "")
-                smiles = smiles.replace(" +", "")
-                meno.strip()
-                smiles.strip()
-                meno = meno[:-1]
-                smiles = smiles[:-1]
-                rea = {
-                    "name": meno,
-                    "formula": reakcie,
-                    "smiles": smiles,
-                    "desc": desc,
-                    "reactant_one_name": prva.strip(),
-                    "reactant_two_name": druha.strip(),
-                }
-
-                data = requests.post("http://127.0.0.1:5000/reaction", json=rea)
-                if data.status_code == 201:
-                    print(f"{meno} pridané")
-                else:
-                    print(data.status_code)
+                # for asd in udaje[2]:
+                #     desc += f"{asd}, "
+                # meno = meno.replace(" +", "")
+                # smiles = smiles.replace(" +", "")
+                # meno.strip()
+                # smiles.strip()
+                # meno = meno[:-1]
+                # smiles = smiles[:-1]
+                # rea = {
+                #     "name": meno,
+                #     "formula": reakcie,
+                #     "smiles": smiles,
+                #     "desc": desc,
+                #     "reactant_one_name": prva.strip(),
+                #     "reactant_two_name": druha.strip(),
+                # }
+                #
+                # data = requests.post("http://127.0.0.1:5000/reaction", json=rea)
+                # if data.status_code == 201:
+                #     print(f"{meno} pridané")
+                # else:
+                #     print(data.status_code)
                 # data = requests.post("http://127.0.0.1:5000/chemical", json={"name": prva.strip()})
                 # data2 = requests.post("http://127.0.0.1:5000/chemical", json={"name": druha.strip()})
                 # if data.status_code == 201:

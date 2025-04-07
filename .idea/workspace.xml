@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment="update gui + pridanie novych hodnot do tabuliek">
-      <change afterPath="$PROJECT_DIR$/request_dat_do_db.py" afterDir="false" />
+    <list default="true" id="a00d0714-38f0-4573-ae9c-3bf477ba5602" name="Changes" comment="upravda tabuliek v db + pridanie dat do db">
+      <change afterPath="$PROJECT_DIR$/smiles_pridavanie.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/chemical.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/chemical.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/reaction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/chemical.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/chemical.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/reaction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skuska.py" beforeDir="false" afterPath="$PROJECT_DIR$/skuska.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my.kv" beforeDir="false" afterPath="$PROJECT_DIR$/my.kv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/request_dat_do_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/request_dat_do_db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +56,16 @@
     &quot;Python.request_dat_do_db.executor&quot;: &quot;Run&quot;,
     &quot;Python.skuska.executor&quot;: &quot;Run&quot;,
     &quot;Python.skuska2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.smiles_pridavanie.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maxim/PycharmProjects/socka&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\maxim\PycharmProjects\socka" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\maxim\PycharmProjects\socka" />
     </key>
@@ -192,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741957405611</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="upravda tabuliek v db + pridanie dat do db">
+      <option name="closed" value="true" />
+      <created>1743678489898</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743678489898</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,6 +228,7 @@
     <MESSAGE value="checkovanie či je reakcia platná a podľa toho vytvorí reakciu" />
     <MESSAGE value="checkpoint" />
     <MESSAGE value="update gui + pridanie novych hodnot do tabuliek" />
-    <option name="LAST_COMMIT_MESSAGE" value="update gui + pridanie novych hodnot do tabuliek" />
+    <MESSAGE value="upravda tabuliek v db + pridanie dat do db" />
+    <option name="LAST_COMMIT_MESSAGE" value="upravda tabuliek v db + pridanie dat do db" />
   </component>
 </project>

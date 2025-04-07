@@ -43,3 +43,17 @@
                 on_press: root.pridat_do_sidebaru()
                 size_hint_y: None
                 height: 100
+
+
+<PopupOkno>:
+    cols: 1
+    GridLayout:
+        id: riadok_smiles
+        cols: root.pocet_koloniek
+        size_hint: 0.8, 0.6
+        pos_hint: {"x": 0.1, "y": 0.8}
+
+    GridLayout:
+        id: riadok_popisok
+        cols: root.pocet_koloniek_desc
+        size_hint: 0.9, 0.4

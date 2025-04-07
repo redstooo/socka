@@ -1,15 +1,20 @@
 import kivy
 import requests
-from kivy.properties import ObjectProperty
+from kivy.config import Config
+from kivy.properties import ObjectProperty, NumericProperty, StringProperty
+from kivy.uix.textinput import TextInput
 from kivy.uix.widget import Widget
 from kivy.app import App
 from kivy.uix.button import Button
+from kivy.uix.popup import Popup
+from kivy.uix.image import Image
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
 
 response_react = requests.get("http://127.0.0.1:5000/reaction")
 response_chem = requests.get("http://127.0.0.1:5000/chemical")
 
 class MyGrid(Widget):
-
     odstranene = False
     pozicia = 0
     def pridat_do_sidebaru(self):
@@ -25,7 +30,7 @@ class MyGrid(Widget):
             for prvok in data["Chemicals..."]:
                 if prvok["name"] == chem_name:
                     idcko = prvok['id']
-                    new_button = DraggableButton(text=f"{prvok['element']} \n {prvok['state']} {chem_name}", size_hint_y=None, size_hint_x=0.5, height=60)
+                    new_button = DraggableButton(text=chem_name, size_hint_y=None, size_hint_x=0.5, height=60)
                     new_button.pos = (self.sidebar.width/2 - self.sidebar.width/4, self.pozicia)
                     new_button.custom_id = idcko
                     new_button.pozicia_x, new_button.pozicia_y = new_button.pos
@@ -44,7 +49,11 @@ class MyGrid(Widget):
 
 
 class DraggableButton(Button):
+
    def on_touch_down(self, touch):
+
+      if touch.button == "right" and self.collide_point(*touch.pos):
+            self.popup_screen()
       if self.collide_point(*touch.pos):
          touch.grab(self)
          return True
@@ -91,11 +100,20 @@ class DraggableButton(Button):
                    pozicia_xx, pozicia_yy = self.pos
                    parent_layout.remove_widget(self)
                    parent_layout.remove_widget(other_button)
-                   reakcia = DraggableButton(text=f" {reaction['element']} \n {reaction['state']} {reaction['name']}" , size_hint_y=None, size_hint_x=0.5, height=60)
+                   reakcia = DraggableButton(text=f" {reaction['formula']} \n {reaction['name']}" , size_hint_y=None, size_hint_x=0.5, height=60)
                    reakcia.pos = (pozicia_xx - 5, pozicia_yy + 5)
+                   smajli = reaction["smiles"].split(" ")
+                   popi = reaction["desc"].split("., ")
+                   reakcia.smajls = len(smajli)
+                   reakcia.smajls_pole = smajli
+                   try:
+                       popi.remove("")
+                   except ValueError:
+                       print("ups chybička cca")
+                   reakcia.desc = popi
+                   reakcia.desc_len = len(popi)
                    parent_layout.add_widget(reakcia)
                    match += True
-                   break
            if not match:
                print("nie je match")
                self.pos = (self.pozicia_x, self.pozicia_y)
@@ -105,7 +123,48 @@ class DraggableButton(Button):
        except AttributeError:
            print("tento objekt nemá id")
 
+
+   def popup_screen(self):
+       try:
+           show = PopupOkno(smajls_pole=self.smajls_pole, smajls=self.smajls, desc=self.desc, desc_len=self.desc_len)
+           show.pridavanie_obrazkov()
+           show.pridavanie_desc()
+           popup_window = Popup(title="popisok reakcie", content=show, size_hint=(None,None), size=(1000, 800))
+           popup_window.open()
+       except AttributeError:
+           print("ešte nie je reakcia definovana")
+class PopupOkno(GridLayout):
+   pocet_koloniek = NumericProperty(1)
+   pocet_koloniek_desc = NumericProperty(1)
+   def __init__(self, smajls_pole, smajls, desc, desc_len, **kwargs):
+       super().__init__(**kwargs)
+       self.smajls_pole = smajls_pole
+       self.pocet_koloniek = smajls
+       self.popisok = desc
+       self.pocet_koloniek_desc = desc_len
+
+
+
+   def pridavanie_obrazkov(self):
+          obrazky = self.ids.riadok_smiles
+          for smajl in self.smajls_pole:
+              if smajl == "":
+                  continue
+              image_smile = Image(source=f"smiles/{smajl}.jpg")
+              obrazky.add_widget(image_smile)
+
+   def pridavanie_desc(self):
+       popisok = self.ids.riadok_popisok
+       for des in self.popisok:
+           popisok.add_widget(TextInput(text=des, multiline=True, readonly=True))
+
+
+
+
+
+
 class MyApp(App):
+    Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
     def build(self):
         return MyGrid()
 
