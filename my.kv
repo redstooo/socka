@@ -1,5 +1,4 @@
 <MyGrid>
-    chem_input: chem_input
     sidebar: sidebar
     sidebar_label: sidebar_label
     canvas.before:
@@ -31,18 +30,22 @@
 
 
         GridLayout:
-            cols: 2
-            TextInput:
-                id: chem_input
-                multiline: False
+            cols: 3
+            id: chem_input
+            Label:
+                font_name: "comic"
+                font_size: 30
+                size_hint_x: 0.67
+                text: "ChemioBiologio"
                 size_hint_y: None
-                height: 100
-                size_hint_x: 0.25
-            Button:
-                text: "Pridať"
-                on_press: root.pridat_do_sidebaru()
+                height: 150
+            Image:
+                source: "logo_sgcr.png"
                 size_hint_y: None
-                height: 100
+                size_hint_x: 0.1
+                height: 150
+
+
 
 
 <PopupOkno>:

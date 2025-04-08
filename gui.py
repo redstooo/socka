@@ -10,6 +10,9 @@ from kivy.uix.popup import Popup
 from kivy.uix.image import Image
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
+from kivy.uix.dropdown import DropDown
+from kivy.clock import Clock
+from kivy.uix.spinner import Spinner
 
 response_react = requests.get("http://127.0.0.1:5000/reaction")
 response_chem = requests.get("http://127.0.0.1:5000/chemical")
@@ -17,14 +20,36 @@ response_chem = requests.get("http://127.0.0.1:5000/chemical")
 class MyGrid(Widget):
     odstranene = False
     pozicia = 0
-    def pridat_do_sidebaru(self):
-        chem_input = ObjectProperty(None)
-        sidebar = ObjectProperty(None)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        Clock.schedule_once(self.dropdown_menu, 0.25)
+    def dropdown_menu(self, dt):
+        data = response_chem.json()
+        chemikalie = []
+        horny_panel = self.ids.chem_input
+        for chem in data["Chemicals..."]:
+            chemikalie.append(chem["name"])
+        self.chem_dropdown = Spinner(
+            text="Chemikálie",
+            values=chemikalie,
+            size_hint_y=None,
+            size_hint_x=0.195,
+            height=150,
+        )
+        def pridanie(spinner, text):
+            print(spinner, text)
+            return self.pridat_do_sidebaru(self.chem_dropdown.text)
+        self.chem_dropdown.bind(text=pridanie)
+        horny_panel.add_widget(self.chem_dropdown, index=2)
+
+
+
+    def pridat_do_sidebaru(self, chem_name):
         sidebar_label = ObjectProperty(None)
-        chem_name = self.chem_input.text.strip()
+        grid = self.ids.sidebar
         if chem_name:
             if not self.odstranene:
-                self.sidebar.remove_widget(self.sidebar_label)
+                grid.remove_widget(self.sidebar_label)
                 self.odstranene += True
             data = response_chem.json()
             for prvok in data["Chemicals..."]:
@@ -34,18 +59,12 @@ class MyGrid(Widget):
                     new_button.pos = (self.sidebar.width/2 - self.sidebar.width/4, self.pozicia)
                     new_button.custom_id = idcko
                     new_button.pozicia_x, new_button.pozicia_y = new_button.pos
-                    self.sidebar.add_widget(new_button)
-                    self.chem_input.text = ""
+                    grid.add_widget(new_button)
                     self.pozicia += 62
                     if self.pozicia == 930:
                         self.pozicia = 0
-                    self.chem_input.hint_text = " "
                     break
-                else:
-                    self.chem_input.text = ""
-                    self.chem_input.hint_text = "tento prvok \n nie je v databáze"
-        else:
-            self.chem_input.hint_text = "zadajte vzorec"
+
 
 
 class DraggableButton(Button):
@@ -157,10 +176,6 @@ class PopupOkno(GridLayout):
        popisok = self.ids.riadok_popisok
        for des in self.popisok:
            popisok.add_widget(TextInput(text=des, multiline=True, readonly=True))
-
-
-
-
 
 
 class MyApp(App):
